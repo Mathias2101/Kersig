@@ -34,7 +34,7 @@
             const sekundenSeitStart = (jetzt - startDatum) / 1000; // Berechnet die Sekunden seit dem Startdatum
             if (sekundenSeitStart > 0) {
                 const aktuellerBetrag = startBetrag + (zuwachsProSekunde * sekundenSeitStart);
-                document.getElementById('zaehler').innerText = aktuellerBetrag.toFixed(3).replace('.', ',') + ' €';
+                document.getElementById('zaehler').innerText = aktuellerBetrag.toLocaleString('de-DE', {minimumFractionDigits: 3, maximumFractionDigits: 3}) + ' €';
             }
         }
 
@@ -43,4 +43,5 @@
     </script>
 </body>
 </html>
+
 
