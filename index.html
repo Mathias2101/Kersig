@@ -24,16 +24,18 @@
         const jahresZins = 0.04; // Jährlicher Zinsatz
         const kapital = 4000000; // Kapital in Euro
         const sekundenImJahr = 365 * 24 * 60 * 60; // Anzahl der Sekunden in einem Jahr
+        const startDatum = new Date('2023-10-01T00:00:00'); // Startdatum auf den 1. Oktober 2023 setzen
 
         // Berechnet den Zuwachs pro Sekunde
         const zuwachsProSekunde = kapital * jahresZins / sekundenImJahr;
 
         function aktualisiereZaehler() {
             const jetzt = new Date();
-            const start = new Date(jetzt.getFullYear(), 0, 1); // Start am Anfang des Jahres
-            const sekundenSeitStart = (jetzt - start) / 1000;
-            const aktuellerBetrag = startBetrag + (zuwachsProSekunde * sekundenSeitStart);
-            document.getElementById('zaehler').innerText = aktuellerBetrag.toFixed(3).replace('.', ',') + ' €';
+            const sekundenSeitStart = (jetzt - startDatum) / 1000; // Berechnet die Sekunden seit dem Startdatum
+            if (sekundenSeitStart > 0) {
+                const aktuellerBetrag = startBetrag + (zuwachsProSekunde * sekundenSeitStart);
+                document.getElementById('zaehler').innerText = aktuellerBetrag.toFixed(3).replace('.', ',') + ' €';
+            }
         }
 
         // Aktualisiert den Zähler jede Sekunde
@@ -41,3 +43,4 @@
     </script>
 </body>
 </html>
+
