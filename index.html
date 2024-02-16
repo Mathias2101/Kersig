@@ -12,15 +12,22 @@
             justify-content: center;
             height: 100vh;
             font-family: Arial, sans-serif;
+            padding: 0 20px; /* Fügt einen Seitenabstand hinzu, um seitliches Scrollen zu vermeiden */
         }
         #einleitungstext {
             margin-bottom: 2cm; /* Abstand von etwa 2 cm zum Zähler */
             text-align: center;
-            font-size: 1em; /* Grundlegende Schriftgröße, die Anpassung erfolgt im Zähler */
+            font-size: 1em; /* Grundlegende Schriftgröße */
+            max-width: 600px; /* Maximale Breite des Textbereichs */
+            width: 100%; /* Breite des Textbereichs anpassen, um Responsivität zu gewährleisten */
         }
         #zaehler {
             font-size: 2em; /* Schriftgröße des Zählers */
             margin-bottom: 3cm; /* Abstand von etwa 3 cm zum Button */
+            /* Stellt sicher, dass der Zähler zentral und mit maximaler Breite dargestellt wird */
+            text-align: center;
+            width: 100%;
+            max-width: 400px; /* Legt die maximale Breite des Zählers fest */
         }
         .anruf-button {
             background-color: green; /* Grüne Farbgebung des Buttons */
@@ -36,7 +43,7 @@
 </head>
 <body>
     <div id="einleitungstext">
-        Lieber Herr M., damit Sie stets komfortabel den Überblick behalten, können Sie hier Ihre Mieteinnahmen stets mit den untenstehenden Zinsen vergleichen, die sich aus einem Verkauf bei unserem ersten Telefongespräch zu Ihren Gunsten bereits ergeben hätten. Konservative Annahme 4 Mio € und 4% Rendite. Mir ist bewusst, dass Sie bei den derzeit günstigen Wohnungspreisen vermutlich sogar noch etwas mehr erzielen könnten.
+        Lieber Herr M., damit Sie stets komfortabel den Überblick behalten und den Vergleich zu den Ferienvermietungseinnahmen führen können, sehen Sie unten die Zinsen, die Sie erhalten hätten, wenn Sie bereits zum Zeitpunkt unseres ersten Telefonats verkauft hätten. Konservative Annahme: 4 Mio € und 4% Rendite. Mir ist bewusst, dass Sie bei den derzeit günstigen Wohnungspreisen vermutlich sogar noch etwas mehr erzielen könnten.
     </div>
     <div id="zaehler">60.000,000 €</div>
     <!-- Button zum Anrufen von Herrn Glass -->
@@ -65,6 +72,3 @@
     </script>
 </body>
 </html>
-
-
-
