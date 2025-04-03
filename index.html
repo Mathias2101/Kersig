@@ -12,55 +12,53 @@
             justify-content: center;
             height: 100vh;
             font-family: Arial, sans-serif;
-            padding: 0 20px; /* Fügt einen Seitenabstand hinzu, um seitliches Scrollen zu vermeiden */
+            padding: 0 20px;
         }
         #einleitungstext {
-            margin-bottom: 2cm; /* Abstand von etwa 2 cm zum Zähler */
+            margin-bottom: 2cm;
             text-align: center;
-            font-size: 1em; /* Grundlegende Schriftgröße */
-            max-width: 600px; /* Maximale Breite des Textbereichs */
-            width: 100%; /* Breite des Textbereichs anpassen, um Responsivität zu gewährleisten */
+            font-size: 1em;
+            max-width: 600px;
+            width: 100%;
         }
         #zaehler {
-            font-size: 2em; /* Schriftgröße des Zählers */
-            margin-bottom: 3cm; /* Abstand von etwa 3 cm zum Button */
-            /* Stellt sicher, dass der Zähler zentral und mit maximaler Breite dargestellt wird */
+            font-size: 2em;
+            margin-bottom: 3cm;
             text-align: center;
             width: 100%;
-            max-width: 400px; /* Legt die maximale Breite des Zählers fest */
+            max-width: 400px;
         }
         .anruf-button {
-            background-color: green; /* Grüne Farbgebung des Buttons */
-            color: white; /* Weiße Textfarbe */
-            padding: 10px 20px; /* Innenabstand */
-            border: none; /* Kein Rand */
-            border-radius: 5px; /* Abgerundete Ecken */
-            font-size: 1em; /* Schriftgröße */
-            cursor: pointer; /* Cursor-Stil */
-            text-decoration: none; /* Keine Textdekoration */
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
     <div id="einleitungstext">
-        Lieber Herr M., damit Sie stets komfortabel den Überblick behalten und den Vergleich zu den Ferienvermietungseinnahmen führen können, sehen Sie unten die Zinsen, die Sie erhalten hätten, wenn Sie bereits zum Zeitpunkt unseres ersten Telefonats verkauft hätten. Konservative Annahme: 4 Mio € und 4% Rendite. Mir ist bewusst, dass Sie bei den derzeit günstigen Wohnungspreisen vermutlich sogar noch etwas mehr erzielen könnten.
+        Hier sehen Sie, was Ihnen, bei 3% Zinsen seit dem 13.03.2025 bereits entgangen ist.
     </div>
-    <div id="zaehler">60.000,000 €</div>
-    <!-- Button zum Anrufen von Herrn Glass -->
+    <div id="zaehler">0,000 €</div>
     <a href="tel:+491602220011" class="anruf-button">Herrn Glass anrufen</a>
     <script>
-        const startBetrag = 1; // Startbetrag in Euro korrigiert auf 1 €
-        const jahresZins = 0.04; // Jährlicher Zinsatz
-        const kapital = 4000000; // Kapital in Euro
+        const startBetrag = 1; // Startbetrag in Euro
+        const jahresZins = 0.03; // Jährlicher Zinssatz von 3%
+        const kapital = 5000000; // Kapital in Euro: 5 Millionen
         const sekundenImJahr = 365 * 24 * 60 * 60; // Anzahl der Sekunden in einem Jahr
-        const startDatum = new Date('2023-10-01T00:00:00'); // Startdatum auf den 1. Oktober 2023 setzen
+        const startDatum = new Date('2025-03-13T00:00:00'); // Startdatum: 13.03.2025
 
         // Berechnet den Zuwachs pro Sekunde
         const zuwachsProSekunde = kapital * jahresZins / sekundenImJahr;
 
         function aktualisiereZaehler() {
             const jetzt = new Date();
-            const sekundenSeitStart = (jetzt - startDatum) / 1000; // Berechnet die Sekunden seit dem Startdatum
+            const sekundenSeitStart = (jetzt - startDatum) / 1000;
             if (sekundenSeitStart > 0) {
                 const aktuellerBetrag = startBetrag + (zuwachsProSekunde * sekundenSeitStart);
                 document.getElementById('zaehler').innerText = aktuellerBetrag.toLocaleString('de-DE', {minimumFractionDigits: 3, maximumFractionDigits: 3}) + ' €';
